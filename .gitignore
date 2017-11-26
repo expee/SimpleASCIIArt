@@ -1,0 +1,8 @@
+*.exe
+*.dll
+*.cmake
+*.marks
+*.make
+*.rsp
+CMakeFiles
+_build
