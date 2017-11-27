@@ -1,5 +1,8 @@
 #include <TextSelector.h>
-#include <string>
+#include <stdio.h>
+#include <cstring>
+
+using namespace std;
 
 TextSelector::TextSelector()
 {

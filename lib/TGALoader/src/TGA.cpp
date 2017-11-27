@@ -1,5 +1,9 @@
 #include <TGA.h>
+#if defined(__STDC_LIB_EXT1__)
+	#define __STDC_WANT_LIB_EXT1__ 1
+#endif	//__STDC_LIB_EXT1__
 #include <stdio.h>
+#include <stdlib.h>
 
 #pragma pack(push,x1)					// Byte alignment (8-bit)
 #pragma pack(1)
@@ -116,9 +120,9 @@ void LoadUncompressedImage( char* pDest, char * pSrc, TGA_HEADER * pHeader )
 char * LoadTGA( const char * szFileName, int * width, int * height, int * bpp )
 {
     
-    FILE * f;
-	
-	if (fopen_s(&f, szFileName, "rb" ) != 0)
+    FILE* f;
+	f = fopen(szFileName, "rb" );
+	if (f == nullptr)
         return NULL;
 
     TGA_HEADER header;

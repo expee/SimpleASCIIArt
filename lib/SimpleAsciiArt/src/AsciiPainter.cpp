@@ -1,5 +1,8 @@
 #include <AsciiPainter.h>
-#include <string>
+#include <stdio.h>
+#include <cstring>
+
+using namespace std;
 
 AsciiPainter::AsciiPainter():
 	m_imageData24(nullptr),
