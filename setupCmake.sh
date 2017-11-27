@@ -1,29 +1,18 @@
-@echo off
+#!/bin/bash
 
-if not exist "_build" (
+if  [ ! -d _build ]; then
 	mkdir _build
-)
+fi
 
 cd _build
 
-if not exist "vs2017" (
-	mkdir vs2017
-)
+if  [ ! -d unixMakefiles ]; then
+	mkdir unixMakefiles
+fi
 
-pushd vs2017
+cd unixMakefiles
 echo ================================================================
-echo ==              CREATING VS 2017 SOLUTION FILES               ==
+echo ==                  CREATING UNIX MAKEFILES                   ==
 echo ================================================================
-cmake -G "Visual Studio 15 2017" ../../
-popd
-
-if not exist "minGW" (
-	mkdir minGW
-)
-
-pushd minGW
-echo ================================================================
-echo ==                  CREATING MINGW MAKEFILES                  ==
-echo ================================================================
-cmake -G "MinGW Makefiles" ../../
-popd
+cmake -G "Unix Makefiles" ../../
+cd ..
